@@ -63,3 +63,6 @@ mono_crash.*.json
 
 # Backend specific
 static
+
+# Project specific
+builds/

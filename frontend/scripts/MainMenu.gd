@@ -19,7 +19,7 @@ func _ready():
 	_connect_signals()
 	_update_connection_status()
 
-	GameState.audio_manager.play_music("menu")
+	GameState.audio_manager.play_music("menu", 0)
 
 func _setup_ui():
 	station_buttons = {
