@@ -1,0 +1,65 @@
+# Common general ignores
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.DS_Store
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# System-specific
+.directory
+.Trash-*
+
+# Editor-specific
+.idea/
+*.code-workspace
+
+# Archives & backups
+*.tar
+*.tar.gz
+*.zip
+*.7z
+*.rar
+*.backup
+*.orig
+*.rej
+
+# Build & runtime output
+logs/
+build/
+dist/
+bin/
+obj/
+out/
+coverage/
+node_modules/
+
+# Ignore all PID files
+*.pid
+
+# Ignore personal files
+INFORMATION.md
+
+# Godot 4+ specific ignores
+.godot/
+.nomedia
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_credentials.cfg
+*.tmp
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json
+
+# Backend specific
+static
