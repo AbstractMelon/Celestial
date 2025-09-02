@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://drwjgiulrigi4"
-path="res://.godot/imported/OrbitronMedium.ttf-1283f4fae9333262f7783f4e42fe348f.fontdata"
+uid="uid://b57bf57ec08oa"
+path="res://.godot/imported/InterVariable.ttf-914015d7025f622d1da0359a08f34ba4.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/OrbitronMedium.ttf"
-dest_files=["res://.godot/imported/OrbitronMedium.ttf-1283f4fae9333262f7783f4e42fe348f.fontdata"]
+source_file="res://assets/fonts/InterVariable.ttf"
+dest_files=["res://.godot/imported/InterVariable.ttf-914015d7025f622d1da0359a08f34ba4.fontdata"]
 
 [params]
 
@@ -16,7 +16,7 @@ Rendering=null
 antialiasing=1
 generate_mipmaps=true
 disable_embedded_bitmaps=true
-multichannel_signed_distance_field=true
+multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
@@ -33,8 +33,7 @@ preload=[{
 "chars": [],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0),
-&"variation_embolden": 0.0
+"size": Vector2i(16, 0)
 }]
 language_support={}
 script_support={}
