@@ -80,6 +80,8 @@ func _setup_connections():
 		GameState.universe_state_updated.connect(_on_universe_updated)
 		GameState.connection_status_changed.connect(_on_connection_status_changed)
 		GameState.alert_level_changed.connect(_on_alert_level_changed)
+	else:
+		print("Gamestate not detected, cannot setup signals")
 
 	phaser_power_slider.value_changed.connect(_on_phaser_power_changed)
 	shield_power_slider.value_changed.connect(_on_shield_power_changed)

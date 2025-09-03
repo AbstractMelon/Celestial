@@ -133,23 +133,25 @@ func _load_alert_sounds():
 
 func play_music(track_name: String, fade_time: float = 2.0):
 	if not music_tracks.has(track_name):
-		print("AudioManager: Unknown music track: ", track_name)
+		push_warning("AudioManager: Unknown music track: " + track_name)
 		return
 
 	var track_path = music_tracks[track_name]
 	if not ResourceLoader.exists(track_path):
-		print("AudioManager: Music file not found: ", track_path)
+		push_warning("AudioManager: Music file not found: " + track_path)
 		return
 
 	var new_stream = load(track_path)
 
 	if current_music_track.playing:
-		music_fade_tween.tween_property(current_music_track, "volume_db", -80, fade_time / 2.0)
-		await music_fade_tween.tween_callback(_switch_music_track.bind(new_stream))
-		music_fade_tween.tween_property(current_music_track, "volume_db", -10, fade_time / 2.0)
+		var tween = create_tween()
+		tween.tween_property(current_music_track, "volume_db", -80, fade_time / 2.0)
+		tween.tween_callback(_switch_music_track.bind(new_stream))
+		tween.tween_property(current_music_track, "volume_db", -10, fade_time / 2.0)
 	else:
 		current_music_track.stream = new_stream
 		current_music_track.play()
+		current_music_track.volume_db = -10
 
 func _switch_music_track(new_stream):
 	current_music_track.stop()
@@ -158,10 +160,12 @@ func _switch_music_track(new_stream):
 
 func stop_music(fade_time: float = 2.0):
 	if current_music_track.playing:
-		music_fade_tween.tween_property(current_music_track, "volume_db", -80, fade_time)
-		await music_fade_tween.finished
-		current_music_track.stop()
-		current_music_track.volume_db = -10
+		var tween = create_tween()
+		tween.tween_property(current_music_track, "volume_db", -80, fade_time)
+		tween.tween_callback(func ():
+			current_music_track.stop()
+			current_music_track.volume_db = -10
+		)
 
 func play_ambient(ambient_name: String):
 	if not ambient_sounds.has(ambient_name):

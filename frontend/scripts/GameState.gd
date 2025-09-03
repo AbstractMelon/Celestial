@@ -157,12 +157,18 @@ func _on_websocket_disconnected():
 	print("GameState: Disconnected from server")
 
 func _on_state_updated(state_data: Dictionary):
-	_update_universe_objects(state_data.get("objects", []))
-	_update_effects(state_data.get("effects", []))
-	_update_removed_objects(state_data.get("removed", []))
-	_update_meta_data(state_data.get("meta", {}))
+	var full_state = state_data.get("full", {})
+	print("Received full state: " + str(full_state))
 
-	universe_state_updated.emit(state_data)
+	_update_universe_objects(full_state.get("objects", []))
+	_update_effects(full_state.get("effects", []))
+	_update_removed_objects(full_state.get("removed", []))
+	_update_meta_data(full_state.get("meta", {}))
+
+	print("Updated state")
+	#print("Objects: " + str(get_universe_objects()))
+
+	universe_state_updated.emit(full_state)
 
 func _on_error_received(error_data: Dictionary):
 	print("GameState: Server error - ", error_data.get("message", "Unknown error"))

@@ -179,11 +179,17 @@ func _handle_message(message_text: String):
 	if not message.has("type"):
 		print("Message missing type field: ", message_text)
 		return
+	
+	print("Handling message with type of " + str(message.type))
 
 	match message.type:
 		"state_update":
+			print("Updating State")
 			if message.has("data"):
+				print("Emiting state update")
 				state_updated.emit(message.data)
+			else:
+				print("State ain't got no data")
 
 		"error":
 			print("Server error: ", message.data.message if message.has("data") else "Unknown error")

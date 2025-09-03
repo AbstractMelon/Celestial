@@ -69,6 +69,8 @@ func _ready():
 	GameState.audio_manager.set_station_audio_profile("viewscreen")
 	GameState.audio_manager.play_music("exploration")
 
+	print("[Viewscreen] Viewscreen ready")
+
 func _setup_connections():
 	if GameState:
 		GameState.universe_state_updated.connect(_on_universe_updated)
@@ -119,6 +121,7 @@ func _generate_stars(count: int):
 
 		star.position = star_pos
 		starfield.add_child(star)
+	print("[Viewscreen] Stars ready")
 
 func _generate_nebulae(count: int):
 	for i in range(count):
@@ -144,6 +147,7 @@ func _generate_nebulae(count: int):
 
 		starfield.add_child(nebula)
 		nebula.emitting = true
+	print("[Viewscreen] Nebula Ready")
 
 func _process(delta):
 	_update_camera(delta)
@@ -371,6 +375,7 @@ func _create_object_node(obj_data: Dictionary, obj_type: String) -> Node3D:
 	if obj_type == "ship":
 		_add_ship_effects(node, obj_data)
 
+	print("[Viewscreen] Created object node: " + obj_data.get("name", obj_type + "_" + obj_data.get("id", "unknown")))
 	return node
 
 func _create_mesh_for_type(obj_type: String, obj_data: Dictionary) -> Mesh:

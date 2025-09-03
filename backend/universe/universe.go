@@ -56,7 +56,7 @@ func NewUniverse() *Universe {
 }
 
 func (u *Universe) initializeDefaultScenario() {
-	playerShip := NewPlayerShip("player_ship", "USS Celestial", utils.Vector3{X: 0, Y: 0, Z: 0})
+	playerShip := NewPlayerShip("player_ship", "USS Astra", utils.Vector3{X: 0, Y: 0, Z: 0})
 	u.AddShip(playerShip)
 	u.PlayerShipID = playerShip.ID
 
