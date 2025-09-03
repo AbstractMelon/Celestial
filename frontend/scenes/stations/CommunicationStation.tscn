@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqm8x5q2n7kya"]
-
-[ext_resource type="Script" path="res://scripts/stations/CommunicationStation.gd" id="1_0x8vq"]
+[gd_scene load_steps=3 format=3 uid="uid://dqm8x5q2n7kya"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
 bg_color = Color(0.05, 0.05, 0.15, 0.9)
@@ -31,13 +29,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("1_0x8vq")
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.02, 0.08, 0.02, 1)
 
 [node name="MainContainer" type="HBoxContainer" parent="."]
@@ -45,15 +46,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="LeftPanel" type="VBoxContainer" parent="MainContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="ConnectionStatus" type="Panel" parent="MainContainer/LeftPanel"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="StatusContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/ConnectionStatus"]
@@ -65,6 +68,8 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="StationTitle" type="Label" parent="MainContainer/LeftPanel/ConnectionStatus/StatusContainer"]
 layout_mode = 2
@@ -81,8 +86,8 @@ text = "Status: DISCONNECTED"
 horizontal_alignment = 1
 
 [node name="FrequencyControl" type="Panel" parent="MainContainer/LeftPanel"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="FreqContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/FrequencyControl"]
@@ -94,6 +99,8 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="FreqTitle" type="Label" parent="MainContainer/LeftPanel/FrequencyControl/FreqContainer"]
 layout_mode = 2
@@ -136,14 +143,13 @@ text = "Volume:"
 [node name="VolumeSlider" type="HSlider" parent="MainContainer/LeftPanel/FrequencyControl/FreqContainer/VolumeContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = 0.0
 max_value = 1.0
 step = 0.01
 value = 0.8
 
 [node name="VolumeValue" type="Label" parent="MainContainer/LeftPanel/FrequencyControl/FreqContainer/VolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 1, 0.2, 1)
 theme_override_font_sizes/font_size = 12
 text = "80%"
@@ -183,8 +189,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1")
 text = "STN"
 
 [node name="MessageComposer" type="Panel" parent="MainContainer/LeftPanel"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="MsgContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/MessageComposer"]
@@ -196,6 +202,8 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MsgTitle" type="Label" parent="MainContainer/LeftPanel/MessageComposer/MsgContainer"]
 layout_mode = 2
@@ -217,7 +225,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_1")
-text = "All Ships"
 
 [node name="PriorityContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/MessageComposer/MsgContainer"]
 layout_mode = 2
@@ -233,7 +240,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_1")
-text = "Normal"
 
 [node name="MessageInput" type="TextEdit" parent="MainContainer/LeftPanel/MessageComposer/MsgContainer"]
 layout_mode = 2
@@ -274,6 +280,8 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="QuickTitle" type="Label" parent="MainContainer/LeftPanel/QuickResponses/QuickContainer"]
 layout_mode = 2
@@ -304,7 +312,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 0.6, 0.2, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_1")
-text = "REQUEST\nASSIST"
+text = "REQUEST
+ASSIST"
 
 [node name="UnavailableButton" type="Button" parent="MainContainer/LeftPanel/QuickResponses/QuickContainer/QuickButtons"]
 layout_mode = 2
@@ -336,6 +345,8 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = -4.0
 offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DisplayTitle" type="Label" parent="MainContainer/CenterPanel/CommDisplay/DisplayContainer"]
 layout_mode = 2
@@ -355,9 +366,9 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-scroll_following = true
 text = "[color=green]Communications Station Online[/color]
 [color=gray]Monitoring all frequencies[/color]"
+scroll_following = true
 
 [node name="CommControls" type="HBoxContainer" parent="MainContainer/CenterPanel/CommDisplay/DisplayContainer"]
 layout_mode = 2
@@ -380,16 +391,17 @@ text = "Save Log"
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_1")
-text = "EMERGENCY\nBROADCAST"
+text = "EMERGENCY
+BROADCAST"
 
 [node name="RightPanel" type="VBoxContainer" parent="MainContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="ActiveChannels" type="Panel" parent="MainContainer/RightPanel"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="ChannelContainer" type="VBoxContainer" parent="MainContainer/RightPanel/ActiveChannels"]
@@ -401,6 +413,8 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ChannelTitle" type="Label" parent="MainContainer/RightPanel/ActiveChannels/ChannelContainer"]
 layout_mode = 2
@@ -435,8 +449,8 @@ theme_override_font_sizes/font_size = 10
 text = "243.00 MHz - Station Alpha"
 
 [node name="AlertManager" type="Panel" parent="MainContainer/RightPanel"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="AlertContainer" type="VBoxContainer" parent="MainContainer/RightPanel/AlertManager"]
@@ -448,6 +462,8 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AlertTitle" type="Label" parent="MainContainer/RightPanel/AlertManager/AlertContainer"]
 layout_mode = 2
@@ -501,6 +517,8 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SignalTitle" type="Label" parent="MainContainer/RightPanel/SignalAnalysis/SignalContainer"]
 layout_mode = 2
@@ -545,8 +563,9 @@ offset_left = 10.0
 offset_top = -40.0
 offset_right = 110.0
 offset_bottom = -10.0
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+grow_vertical = 0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_styles/hover = SubResource("StyleBoxFlat_2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
 text = "← Main Menu"

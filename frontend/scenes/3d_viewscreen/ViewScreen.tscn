@@ -105,6 +105,8 @@ size_flags_horizontal = 3
 
 [node name="ShipStatus" type="Panel" parent="HUDOverlay/TopHUD/LeftInfo"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="StatusGrid" type="GridContainer" parent="HUDOverlay/TopHUD/LeftInfo/ShipStatus"]
@@ -165,7 +167,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.6, 1, 1)
 theme_override_font_sizes/font_size = 18
-text = "USS CELESTIAL"
+text = "USS ASTRA"
 horizontal_alignment = 1
 
 [node name="AlertLevel" type="Label" parent="HUDOverlay/TopHUD/CenterInfo"]
@@ -181,6 +183,8 @@ size_flags_horizontal = 3
 
 [node name="NavigationPanel" type="Panel" parent="HUDOverlay/TopHUD/RightInfo"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="NavGrid" type="GridContainer" parent="HUDOverlay/TopHUD/RightInfo/NavigationPanel"]
