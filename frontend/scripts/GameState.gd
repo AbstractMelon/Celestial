@@ -158,7 +158,6 @@ func _on_websocket_disconnected():
 
 func _on_state_updated(state_data: Dictionary):
 	var full_state = state_data.get("full", {})
-	print("Received full state: " + str(full_state))
 
 	_update_universe_objects(full_state.get("objects", []))
 	_update_effects(full_state.get("effects", []))
@@ -166,7 +165,7 @@ func _on_state_updated(state_data: Dictionary):
 	_update_meta_data(full_state.get("meta", {}))
 
 	print("Updated state")
-	#print("Objects: " + str(get_universe_objects()))
+	print("Objects: " + str(get_universe_objects()))
 
 	universe_state_updated.emit(full_state)
 

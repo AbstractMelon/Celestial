@@ -282,8 +282,8 @@ func _update_contacts():
 		if obj.get("type", "") in ["ship", "station"] and not obj.get("is_player_ship", false):
 			var contact_label = Label.new()
 			contact_label.text = obj.get("name", "Unknown")
-			contact_label.theme_override_colors["font_color"] = Color(0.8, 0.8, 0.8, 1)
-			contact_label.theme_override_font_sizes["font_size"] = 10
+			contact_label.add_theme_color_override("font_color", Color(0.8, 0.8, 0.8, 1))
+			contact_label.add_theme_font_size_override("font_size", 10)
 			contacts_vbox.add_child(contact_label)
 
 			contact_count += 1

@@ -231,8 +231,8 @@ func _update_proximity_alert_list():
 		var alert_label = Label.new()
 		var distance_text = str(int(alert.distance)) + "m"
 		alert_label.text = alert.name + " - " + distance_text
-		alert_label.theme_override_colors["font_color"] = Color.YELLOW if alert.distance < 500 else Color.WHITE
-		alert_label.theme_override_font_sizes["font_size"] = 10
+		alert_label.add_theme_color_override("font_color", Color.YELLOW if alert.distance < 500 else Color.WHITE)
+		alert_label.add_theme_font_size_override("font_size", 10)
 		alerts_vbox.add_child(alert_label)
 
 func _process_helm_controls(delta: float):
@@ -390,8 +390,8 @@ func _update_waypoint_display():
 		var label = Label.new()
 		label.text = str(i + 1)
 		label.position = Vector2(8, -8)
-		label.theme_override_colors["font_color"] = Color.YELLOW
-		label.theme_override_font_sizes["font_size"] = 8
+		label.add_theme_color_override("font_color", Color.YELLOW)
+		label.add_theme_font_size_override("font_size", 8)
 		waypoint_node.add_child(label)
 
 		waypoint_system.add_child(waypoint_node)
@@ -406,8 +406,8 @@ func _update_waypoint_list():
 		var waypoint = waypoints[i]
 		var waypoint_label = Label.new()
 		waypoint_label.text = "%d: (%.0f, %.0f, %.0f)" % [i + 1, waypoint.x, waypoint.y, waypoint.z]
-		waypoint_label.theme_override_colors["font_color"] = Color.WHITE
-		waypoint_label.theme_override_font_sizes["font_size"] = 10
+		waypoint_label.add_theme_color_override("font_color", Color.WHITE)
+		waypoint_label.add_theme_font_size_override("font_size", 10)
 		waypoint_vbox.add_child(waypoint_label)
 
 func _on_desired_heading_changed(value: float):
@@ -463,11 +463,13 @@ func _activate_emergency_stop():
 	GameState.audio_manager.play_error_sound()
 
 func _zoom_nav_map_out():
-	nav_camera.zoom /= 1.5
+	var new_zoom = nav_camera.zoom / 1.5
+	nav_camera.zoom = new_zoom.clamp(Vector2(0.01, 0.01), Vector2(100, 100))
 	GameState.audio_manager.play_button_sound()
 
 func _zoom_nav_map_in():
-	nav_camera.zoom *= 1.5
+	var new_zoom = nav_camera.zoom * 1.5
+	nav_camera.zoom = new_zoom.clamp(Vector2(0.01, 0.01), Vector2(100, 100))
 	GameState.audio_manager.play_button_sound()
 
 func _center_nav_map():

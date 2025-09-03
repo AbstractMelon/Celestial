@@ -165,6 +165,7 @@ text = "1.0x"
 [node name="AutopilotPanel" type="Panel" parent="MainContainer/LeftPanel"]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="AutopilotContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/AutopilotPanel"]
@@ -476,6 +477,7 @@ text = "Save"
 [node name="WaypointList" type="Panel" parent="MainContainer/RightPanel"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="WaypointContainer" type="VBoxContainer" parent="MainContainer/RightPanel/WaypointList"]

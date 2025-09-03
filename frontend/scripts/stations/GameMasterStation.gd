@@ -442,14 +442,14 @@ func _update_object_properties(obj_data: Dictionary):
 		var prop_label = Label.new()
 		prop_label.text = property.capitalize() + ":"
 		prop_label.custom_minimum_size.x = 80
-		prop_label.theme_override_colors["font_color"] = Color(0.8, 0.8, 0.8, 1)
-		prop_label.theme_override_font_sizes["font_size"] = 10
+		prop_label.add_theme_color_override("font_color", Color(0.8, 0.8, 0.8, 1))
+		prop_label.add_theme_font_size_override("font_size", 10)
 		prop_container.add_child(prop_label)
 
 		var prop_value = Label.new()
 		prop_value.text = str(obj_data[property])
-		prop_value.theme_override_colors["font_color"] = Color(1, 1, 0.8, 1)
-		prop_value.theme_override_font_sizes["font_size"] = 10
+		prop_value.add_theme_color_override("font_color", Color(1, 1, 0.8, 1))
+		prop_value.add_theme_font_size_override("font_size", 10)
 		prop_container.add_child(prop_value)
 
 		object_properties_vbox.add_child(prop_container)
