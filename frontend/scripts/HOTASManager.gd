@@ -131,7 +131,7 @@ func _ready():
 	_scan_for_hotas_devices()
 	_load_device_profiles()
 
-func _process(delta):
+func _process(_delta):
 	_process_hotas_inputs()
 
 func _scan_for_hotas_devices():
@@ -157,7 +157,7 @@ func _scan_for_hotas_devices():
 			hotas_connected.emit(connected_hotas[device_id])
 			_initialize_device_state(device_id)
 
-func _identify_hotas_device(device_name: String, device_guid: String) -> Dictionary:
+func _identify_hotas_device(device_name: String, _device_guid: String) -> Dictionary:
 	device_name = device_name.to_lower()
 
 	if "x56" in device_name and "saitek" in device_name or "x56" in device_name and "logitech" in device_name:

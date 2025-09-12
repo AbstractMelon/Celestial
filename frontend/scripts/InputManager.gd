@@ -87,7 +87,7 @@ func _ready():
 	_load_calibration_data()
 	_setup_default_settings()
 
-func _process(delta):
+func _process(_delta):
 	if Time.get_unix_time_from_system() - last_input_time < input_rate_limit:
 		return
 
@@ -111,7 +111,7 @@ func _scan_for_devices():
 		print("InputManager: Found device - ", device_name, " (ID: ", device_id, ")")
 		device_connected.emit(device_name)
 
-func _identify_device_type(device_name: String, device_guid: String) -> String:
+func _identify_device_type(device_name: String, _device_guid: String) -> String:
 	device_name = device_name.to_lower()
 
 	if "x56" in device_name or "saitek" in device_name:

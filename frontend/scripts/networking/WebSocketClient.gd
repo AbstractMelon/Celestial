@@ -185,6 +185,7 @@ func _handle_message(message_text: String):
 	match message.type:
 		"state_update":
 			if message.has("data"):
+				print(message.data)
 				state_updated.emit(message.data)
 			else:
 				print("State ain't got no data")
